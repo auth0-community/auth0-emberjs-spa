@@ -1,14 +1,27 @@
-<div class="login-page clearfix">
-  <header>
-    <img class="header__icon" src="/auth0.png" alt="" />
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{#link-to 'index' classNames='navbar-brand'}}
+        Home
+      {{/link-to}}
+    </div>
+    <ul class="nav navbar-nav">
+      {{#link-to 'protected' tagName='li'}}
+        <a href="#">Protected Page</a>
+      {{/link-to}}
+    </ul>
     {{#if session.isAuthenticated}}
-      <h5>Hi, {{session.secure.profile.name}}</h5>
-      <button class="btn btn-primary btn-lg btn-login btn-block" {{ action 'invalidateSession' }}>Sign out</button>
+      <button class="btn btn-danger navbar-btn pull-right" {{ action 'logout' }}>Sign out</button>
     {{else}}
-      <button class="btn btn-primary btn-lg btn-login btn-block" {{ action 'sessionRequiresAuthentication' }}>Sign in</button>
+      <button class="btn btn-info navbar-btn pull-right" {{ action 'transitionToLoginRoute' }}>Sign in</button>
     {{/if}}
-  </header>
-
-  {{outlet}}
+  </div>
+</nav>
+<div class="row text-center">
+  <div class="col-md-12">
+    <img src="/auth0.png" alt="" />
+  </div>
+  <div class="col-md-12">
+    {{outlet}}
+  </div>
 </div>
