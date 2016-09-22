@@ -1,1 +1,9 @@
+.home-container {
+    background: white;
+}
 
+.profile-aside .avatar {
+    border-radius: 5px;
+    margin-top: 50px;
+    width: 100%;
+}
