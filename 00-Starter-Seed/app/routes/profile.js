@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       pictureUrl: profileObject.picture,
       email: profileObject.email,
       body: profile.trim()
-    }
+    };
     return model;
   }
 });
