@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-var auth0Config = require('./auth0-variables');
+var auth0 = require('./auth0-variables');
 
 module.exports = function(environment) {
   var ENV = {
@@ -24,9 +24,9 @@ module.exports = function(environment) {
     },
 
     Auth0: {
-      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
-      domain: 'ntotten-demo.auth0.com',
-      callbackUrl: 'http://localhost:4200/callback',
+      clientId: auth0.AUTH0_CLIENT_ID,
+      domain: auth0.AUTH0_DOMAIN,
+      callbackUrl: 'http://localhost:7357/callback',
     }
   };
 
@@ -61,15 +61,15 @@ module.exports = function(environment) {
   }
 
   ENV['auth0-ember-simple-auth'] = {
-    clientID: auth0Config.AUTH0_CLIENT_ID,
-    domain: auth0Config.AUTH0_DOMAIN
+    clientID: auth0.AUTH0_CLIENT_ID,
+    domain: auth0.AUTH0_DOMAIN
   }
 
   ENV['contentSecurityPolicy'] = {
     'font-src': "'self' data: https://*.auth0.com https://maxcdn.bootstrapcdn.com https://fonts.typekit.net http://cdn.auth0.com/",
     'style-src': "'self' 'unsafe-inline' http://use.typekit.net https://maxcdn.bootstrapcdn.com",
     'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://*.auth0.com https://use.typekit.net",
-    'img-src': 'https://www.gravatar.com *.wp.com data: http://p.typekit.net http://localhost:*/auth0.png http://localhost:4200/favicon.ico',
+    'img-src': 'https://www.gravatar.com *.wp.com data: http://p.typekit.net http://localhost:*/auth0.png http://localhost:7357/favicon.ico',
     'connect-src': "'self' http://localhost:* https://samples.auth0.com"
   };
 

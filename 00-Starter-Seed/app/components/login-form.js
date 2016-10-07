@@ -9,7 +9,7 @@ const { service } = Ember.inject;
 const options = {
   auth: {
     params: {scope: 'openid email'},
-    redirectUrl: 'http://localhost:4200/callback',
+    redirectUrl: 'http://localhost:7357/callback',
     responseType: 'token'
   }
 };
