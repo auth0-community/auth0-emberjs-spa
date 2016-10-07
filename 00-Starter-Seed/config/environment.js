@@ -6,32 +6,41 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'simple',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        Date: false,
       }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    Auth0: {
+      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
+      domain: 'ntotten-demo.auth0.com',
+      callbackUrl: 'http://localhost:4200/callback',
     }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -57,10 +66,10 @@ module.exports = function(environment) {
   }
 
   ENV['contentSecurityPolicy'] = {
-    'font-src': "'self' data: https://*.auth0.com https://maxcdn.bootstrapcdn.com",
+    'font-src': "'self' data: https://*.auth0.com https://maxcdn.bootstrapcdn.com https://fonts.typekit.net http://cdn.auth0.com/",
     'style-src': "'self' 'unsafe-inline' http://use.typekit.net https://maxcdn.bootstrapcdn.com",
     'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://*.auth0.com https://use.typekit.net",
-    'img-src': 'https://www.gravatar.com *.wp.com data: http://p.typekit.net',
+    'img-src': 'https://www.gravatar.com *.wp.com data: http://p.typekit.net http://localhost:*/auth0.png http://localhost:4200/favicon.ico',
     'connect-src': "'self' http://localhost:* https://samples.auth0.com"
   };
 
