@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "ember server",
+    "start": "ember server --port 7357",
     "build": "ember build",
     "test": "ember test"
   },
